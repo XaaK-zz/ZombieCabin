@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -148,18 +147,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262447bf978758d4d99c900ed4d1f38e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -227,7 +214,6 @@ GameObject:
   m_Component:
   - component: {fileID: 572159126}
   - component: {fileID: 572159125}
-  - component: {fileID: 572159127}
   - component: {fileID: 572159128}
   m_Layer: 0
   m_Name: player
@@ -301,26 +287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &572159127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572159124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc3b352a79b83b4e97c6c51c9bd0d75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -636201310591049115, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  - {fileID: -6757175439146273889, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  - {fileID: -8678089795564642742, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  - {fileID: -455332749993820711, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  - {fileID: 831204722211429259, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  - {fileID: -6419425177539666813, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
-  framesPerSecond: 10
 --- !u!114 &572159128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,8 +299,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8f5da5ec99e9646b8e5beff6c7a154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -636201310591049115, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  - {fileID: -6757175439146273889, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  - {fileID: -8678089795564642742, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  - {fileID: -455332749993820711, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  - {fileID: 831204722211429259, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  - {fileID: -6419425177539666813, guid: aa923110b5c69ab4c938634d74d5e45f, type: 3}
+  framesPerSecond: 15
   moveSpeed: 1
-  turnSpeed: 5
 --- !u!1 &1924855135
 GameObject:
   m_ObjectHideFlags: 0

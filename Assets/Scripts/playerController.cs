@@ -4,41 +4,46 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprites;
+    public float framesPerSecond;
     public float moveSpeed;
     private Vector3 moveDirection;
-    public float turnSpeed;
+    private int state;
 
     // Start is called before the first frame update
     void Start()
     {
         moveDirection = Vector3.right;
-
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        state = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 1
-        Vector3 currentPosition = transform.position;
-        // 2
-        if (Input.GetButton("Fire1"))
+        if (state == 1)
         {
-            // 3
-            Vector3 moveToward = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            // 4
-            moveDirection = moveToward - currentPosition;
-            moveDirection.z = 0;
-            moveDirection.Normalize();
+            int index = (int)(Time.timeSinceLevelLoad * framesPerSecond);
+            index = index % sprites.Length;
+            spriteRenderer.sprite = sprites[index];
         }
 
-        Vector3 target = moveDirection * moveSpeed + currentPosition;
-        transform.position = Vector3.Lerp(currentPosition, target, Time.deltaTime);
-
-        float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-        transform.rotation =
-          Quaternion.Slerp(transform.rotation,
-                            Quaternion.Euler(0, 0, targetAngle),
-                            turnSpeed * Time.deltaTime);
-
+        if (hinput.gamepad[0].leftStick.position.magnitude > .1f)
+        {
+            if (state == 1)
+            {
+                transform.position += hinput.gamepad[0].leftStick.worldPositionCamera * moveSpeed * Time.deltaTime; float angle = Mathf.Atan2(hinput.gamepad[0].leftStick.worldPositionCamera.y, hinput.gamepad[0].leftStick.worldPositionCamera.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+            else if (state == 0)
+            {
+                state = 1;
+            }
+        }
+        else
+        {
+            state = 0;
+        }
     }
 }
